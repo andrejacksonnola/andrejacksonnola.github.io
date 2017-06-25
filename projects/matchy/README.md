@@ -114,9 +114,11 @@ structure to hold this list of friends?
 # Part 2
 **All work in this section will be done in functions.js**
 
-In this file, we'll create some Functions to work with our data created Part 1, which we coded in the file `data.js`.
+In this file, we'll create some Functions to work with our data created Part 1, 
+which we coded in the file `data.js`.
 
-These Functions will pass in all needed parameters, meaning, we will not reach into the global scope to access `animals`.
+These Functions will pass in all needed parameters, meaning, we will not reach 
+into the global scope to access `animals`.
 
 ## Step 1 - Search
  1. Open up the file `functions.js` in your editor.
@@ -129,7 +131,8 @@ These Functions will pass in all needed parameters, meaning, we will not reach i
 
 ## Step 2 - Replace
  1. Write a function called `replace` with a signature of `replace(animals, name, replacment) { //... } ` that:
-   - Takes 3 parameters, an Array of animals, a name of an animal on which to perform a search, and an Object that represents the replacement animal.
+   - Takes 3 parameters, an Array of animals, a name of an animal on which to perform a search, and an Object 
+   that represents the replacement animal.
    - If an animal with that name exists within the `animals` Array, replace it's entire Object with the replacement Object.
    - Otherwise do nothing.
  2. Test it on the website.

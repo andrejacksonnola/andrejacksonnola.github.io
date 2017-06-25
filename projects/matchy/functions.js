@@ -20,8 +20,11 @@ function search(animals, name){
             result = animals[i];
             return result;
         } 
-    
+    else {
+        return result;
+    }
 }
+
 
 
 
@@ -30,18 +33,59 @@ function search(animals, name){
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function replace(animals, name, replacement)
+function replace(animals, name, replacement){
+    for (var i = 0; i < animals.length; i++){
+        if (animals[i].name === name){
+            animals[i] = replacement;
+            return animals;
+        }
+    } 
+}
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+function remove(animals, name){
+    for (var i = 0; i < animals.length; i++){
+        if (animals[i].name === name){
+            animals.splice([i],1);
+            return animals;
+        }
+    }
+}
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Create ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+function add(animals, animal){
+    if (animal.name.length > 0 && animal.species.length > 0){
+    for (var i =0; i < animals.length; i++){
+        if (animals[i].name.toUpperCase() === animal.name.toUpperCase()){
+            return;
+        }
+    }
+      return animals.push(animal);
+   }
+}
+            
+            
+            
+            
+            
+            
+//             for (var i = 0; i < animals.length; i++){
+//                 if (animals[i].name === animal.name){
+//                     return animals;
+//                 } else {
+//                     animals.push(animal);
+//                     return animals;
+//                 }
+//             }
+//         }
+//     }
+// }
+    
 
 
 /** 
