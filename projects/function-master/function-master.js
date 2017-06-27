@@ -68,9 +68,7 @@ function profileInfo(object){
         for(var key in object){
           if(object[key][0] === name || object[key][1] === name){
             return true;
-          }//else{
-        //       return false;
-        //   }
+          }
         }
         
         return false;
