@@ -81,3 +81,21 @@ main {
     border-color: rgba(255, 255, 255, 1);
     cursor: pointer; cursor: hand;
 }
+
+#section-recordings {
+    font-size: 14px;
+}
+
+#list-recordings {
+   
+}
+
+.recording {}
+
+.title {}
+
+.artist {}
+
+.release {}
+
+.year {}
