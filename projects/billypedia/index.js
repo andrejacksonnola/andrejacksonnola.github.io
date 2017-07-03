@@ -48,7 +48,7 @@ $(document).ready(function() {
                 $('<div>').attr('class', 'year').text("Year: " + recording.year).appendTo($listitem);
                 
             });
-            
+                
             return $list;
         }
         var recordingsList = makeList(recordings);
