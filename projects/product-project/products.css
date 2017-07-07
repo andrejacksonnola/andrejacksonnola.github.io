@@ -1,0 +1,19 @@
+body{
+    background: white;
+}
+
+/*main{*/
+   
+/*    flex-direction: row;*/
+/*}*/
+
+.product{
+    background-color: white;
+    color: navy;
+    
+}
+
+.product-image{
+    height: 100px;
+    flex-direction: row;
+}
