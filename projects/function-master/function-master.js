@@ -1,9 +1,10 @@
-
+ 
 //objectValues should take an object and return an array
 function objectValues(object){
     var arr = [];
     for (var key in object){
-        arr.push(object[key]);
+        var objVal = object[key];
+        arr.push(objVal);
         
     }
     return arr;
@@ -12,39 +13,55 @@ function objectValues(object){
 //keytostring
 
 function keysToString(object){
-    var str = '';
-    for (var key in object){
-        str.push(object[key] + " ");
-    }
-    return str;
+    var keysArray = Object.keys(object);
+    var keyString = keysArray.join(" ");
+    return keyString;
 }
+
+
+//VALUES TO STRONG
 
 function valuesToString(object){
   var str = '';
   var arr = [];
   for (var key in object){
-    if (typeof object[key] === "string"){
-      arr.push(key);
-      str = arr.join(" ");
-      
-      
-    }
-  } return str;
+    var value = object[key];
+    if (typeof value === "string"){
+      arr.push(value);
+       }
+       
+  } 
+  str = arr.join(" ");
+  return str;
   
 }
 
 
+//ARRAY OR OBJECT
+
 function arrayOrObject(test){
+  var result = "";
     if (Array.isArray(test)){
-        console.log('This is an array');
+        result = "array";
     } else if (typeof test === 'object'){
-        console.log('object');
+        result = "object";
     }
+    
+    return result;
 }
 
-function captializeWord(word){
-    return word[0].toUpperCase();
+//CAPITALIZE WORD
+
+function capitalizeWord(word){
+    var firstLetter = word[0];
+    var upperCase = firstLetter.toUpperCase();
+    var sliceLetters = word.slice(1);
+    var completeWord = upperCase + sliceLetters;
+    return completeWord;
 }
+
+
+//CAPITALIZE ALL WORDS
 
 function capitalizeAllWords(string){
   var useArray = string.split(" ");
@@ -54,14 +71,79 @@ function capitalizeAllWords(string){
   } return newArray.join(" ");
 }
 
+//WELCOME MESSAGE
+
 function welcomeMessage(object){
-    return "Welcome" + object.name;
+  
+  for(var key in object){
+    var upper = object[key].charAt(0).toUpperCase();
+    var latterWords = object[key].slice(1);
+    var word = upper + latterWords;
+    var complete = "Welcome " + word +"!";
+    return complete;
+    
+  
+  }
+  
+  
+    // var myObj = object.name;
+    // var firstLetter = myObj;
+    // var upperCase = object.name.upperCase();
+    // var latterLetters = myObj.slice(1);
+    // var completeWord = upperCase + latterLetters;
+    // var welcome = "Welcome " + completeWord + "!";
+    // return welcome;
 }
+
+//PROFILE INFO
 
 function profileInfo(object){
-    var message = object.name.charAt(0).toUpperCase() + object.name.substr(1) + " is a " + object.species.charAt(0).toUpperCase() + object.species.substr(1);
+  var objName = object.name;
+  var objSpecies = object.species;
+  var firstLetterName = objName.charAt(0);
+  var firstLetterSpecies = objSpecies.charAt(0);
+  var upperCaseName = firstLetterName.toUpperCase();
+  var upperCaseSpecies = firstLetterSpecies.toUpperCase();
+  var latterLettersName = objName.slice(1);
+  var latterLettersSpecies = objSpecies.slice(1);
+  var completeName = upperCaseName + latterLettersName;
+  var completeSpecies = upperCaseSpecies + latterLettersSpecies;
+  return completeName + " is a " + completeSpecies;
 }
 
+
+//MAYBE NOISES
+function maybeNoises(object) {
+    var getNoises = [];
+  if (object.noises) {
+     if (object.noises.length > 0) {
+         for (var i =0; i < object.noises.length; i++) {
+           getNoises.push(object.noises[i]);
+    }
+       return getNoises.join(" ");
+       } 
+     }
+  return "there are no noises";
+}
+
+//HAS WORD
+function hasWord(data, word){
+        if (data.match(word)){
+          return true;
+        }
+        else {
+          return false;
+        }
+      }
+      
+//ADD FRIEND
+ function addFriend(name, object){
+        object.friends.push(name);
+        return object;
+      }
+      
+
+//ISFRIEND
 
  function isFriend(name, object){
         
@@ -111,16 +193,15 @@ for(var i=0; i< arr.length; i++){
 }
 removeProperties();
 
-function indexOf(array){
+function dedup(array){
   var newArr = [];
   
   for(var i = 0; i < array.length; i++){
     var indexter = array.indexOf(array[i]);
-    if(indexter === i && indexter !== -1){
+    if(indexter === i){
       newArr.push(array[i]);
     }
   }
   
   return newArr;
 }
-indexOf();

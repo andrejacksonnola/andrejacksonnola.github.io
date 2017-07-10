@@ -5,34 +5,55 @@
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="products.css">
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="bower_components/notes/notes.js"></script>
         <script type="text/javascript" src="js/lib/spin.min.js"></script>
         <script type="text/javascript" src="js/view/pacifier.js"></script>
         <script type="text/javascript" src="js/products.js"></script>
+        <script type="css" src="js/products.css"></script>
         <title>Product Project</title>
+        
+        
+        <style>
+            
+            .desc-style-small {
+                font-family: cursive;
+            }
+            
+            .low-stock-small {
+                
+                width: 100px;
+                background-color: orange;
+                color: white;
+                text-align: center;
+            }
+            
+            .image-container {
+                
+                flex-wrap: wrap;
+                
+            }
+            
+            .img {
+                
+                position: absolute;
+                bottom: 0;
+                left: 15;
+            }
+            
+            .listNav {
+                
+                flex-wrap: wrap;
+                
+            }
+            
+            
+        </style>
     </head>
     <body>
-        
-        
         <div id="container" class="container">
             <nav>
                 <h1>Product Project</h1>
-                <form class="search-bar">
-            <div>
-                <label for="search"></label>
-                <input type=text id="search-me"/>
-                <div class="button">
-                <button type="submit">Search here!</button>
-                
-            </div>
-            </div>
-            <!--<div class="button">-->
-            <!--    <button type="submit">Search here!</button>-->
-                
-            <!--</div>-->
-        </form>
             </nav>
             <main>
                 
@@ -40,7 +61,9 @@
             
         </div>
         <script>
-            
+            $(function () {
+                window.opspark.notes.hide();
+            });
         </script>
     </body>
 </html>
