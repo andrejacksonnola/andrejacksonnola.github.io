@@ -19,7 +19,7 @@ function keysToString(object){
 }
 
 
-//VALUES TO STRONG
+//VALUES TO STRING
 
 function valuesToString(object){
   var str = '';
@@ -157,20 +157,30 @@ function hasWord(data, word){
       }
 isFriend();
 
-
-function nonFriends(name, array){
+var data = [
+        {name: "Jimmy", friends:["Sara", "Liza"]},
+        {name: "Bob", friends:[]},
+        {name: "Liza", friends: ["Jimmy"]},
+        {name: "Sara", friends: ["Jimmy"]}
+      ];
+//(array[i].friends[0] === name || array[i].friends[1] === name)
+ function nonFriends(name, array){
   var arr = [];
   for(var i = 0; i < array.length; i++){
-    if(array[i].friends[0] === name || array[i].friends[1] === name){
-    }else{
-     if(array[i].name !== name){
-         arr.push(array[i].name);
-     }
+      if (array[i]['name'] !== name) {
+        var isFriendThere = false
+        for(var j = 0; j < array[i]['friends'].length; j++){
+          if (array[i]['friends'][j] === name){
+          isFriendThere = true;
+          }
+          }if (isFriendThere === false){
+            arr.push(array[i]['name']);
+        }
+      }
     }
-  }
   return arr;
-}
-nonFriends();
+} 
+
 
 function updateObject(obj, key, value){
   
@@ -179,9 +189,12 @@ function updateObject(obj, key, value){
   
   return obj;
 }
-updateObject();
+//updateObject();
+
+
 
 function removeProperties(obj, arr){
+  
   //obj, arr as parameters
   //remove property on object listed in array
 for(var i=0; i< arr.length; i++){
@@ -191,7 +204,7 @@ for(var i=0; i< arr.length; i++){
   return obj;
   
 }
-removeProperties();
+
 
 function dedup(array){
   var newArr = [];
