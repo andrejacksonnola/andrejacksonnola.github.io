@@ -5,8 +5,13 @@ $('.div#1.product').css('height', 600);
   
   $.getJSON('/projects/product-project/data/product.json', function(products){
     
+    
+    
+    
   function listMaker(array){
+    $('main').empty();
     let $products = products.map(function(product, i, a){
+      
     
     let $productBox = $('<div>').addClass('product-container');
     let $desc = $('<div>').addClass('desc-style').text(product.desc);
@@ -43,6 +48,8 @@ $('.div#1.product').css('height', 600);
     specsArray.map(function(v, i, a){
       $('<li>').addClass('spec').text(v).appendTo($specsList);
       
+      
+      
     });
     
     
@@ -56,6 +63,7 @@ $('.div#1.product').css('height', 600);
     
       return $productBox;
     });
+    console.log($products);
       return $products;
   }
   
@@ -65,7 +73,10 @@ $('.div#1.product').css('height', 600);
   
     
     function listMakerSmall(array){
-    let $products = products.map(function(product, i, a){
+    
+    $('main').empty();
+    
+    let $products = array.map(function(product, i, a){
     
     let $productBox = $('<div>').addClass('product-container-small');
     
@@ -113,8 +124,8 @@ $('.div#1.product').css('height', 600);
   
   //$('nav');
   var $smallProductsList = listMakerSmall(products);
-  
-      var $listNav = $('<div>').attr("id", "list-nav").append($smallProductsList);
+  $('main').append(listMakerSmall(products));
+      // var $listNav = $('<div>').attr("id", "list-nav").append($smallProductsList);
   
   
              _.forEach('.product-container-small', function(value, index){
@@ -123,14 +134,81 @@ $('.div#1.product').css('height', 600);
                     $('main').append(value[index]);
         });
         //$productsList
-        $('nav').append($listNav);
+        // $('nav').append($listNav);
       });
     
-  
-  //$('nav').append($listNav);
-  
     
-    //$('main').append($productsList); 
+ 
+//search box
+var $searchSection = $('<div>').addClass('search');
+$searchSection.append($('<input>')
+  .attr('id', 'search-box')
+  .attr('placeholder', 'What are you looking for?'));
+$searchSection
+  .append($('<button>')
+    .text('Search')
+    .attr('id', 'searchButton'));
+$('nav').prepend($searchSection);
+
+//click handler
+$('#searchButton').click(function(event){
+const query = $('#search-box')[0].value;
+let filteredItems = search(products, query);
+$('main').append(listMakerSmall(filteredItems));
+
+// listMaker(filteredItems);
+
+//$('body').append(search(products, query));
+console.log(filteredItems);
+});
+//search function
+var search = function(collection, query) { 
+  var filteredProducts = [];
+  console.log(collection, query)
+  _.each(collection, function(value, index, array) {
+    if(typeof value === 'string') {
+      if(value.indexOf(query) > -1) {
+        console.log(index);
+        filteredProducts.push(array);
+    } 
+    } else if (typeof value === 'object') {
+      _.each(search(value, query), function(value, i, a){
+        if(Array.isArray(value)){
+          filteredProducts.push(array);
+        }
+        else{
+          filteredProducts.push(value);
+        }
+      });
+    }
+    
+  });
+  
+  return filteredProducts;
+  
+};
+    
+    
+    
+    
+    
+    
+    $(document).ready(function(){
+      $('button').click(function(){
+        
+      //console.log('you got it');
+        
+        
+      });
+      
+    });
+    
+    
+    
+    
+    
+    
+    
       
   })
   .fail(function() { console.log('getJSON on product.json failed!'); });

@@ -11,6 +11,7 @@
         <script type="text/javascript" src="js/view/pacifier.js"></script>
         <script type="text/javascript" src="js/products.js"></script>
         <script type="css" src="js/products.css"></script>
+        <script type="html/css" src="js/allcases.html"></script>
         <title>Product Project</title>
         
         
@@ -30,7 +31,7 @@
             
             .image-container {
                 
-                flex-wrap: wrap;
+                display: inline-block;
                 
             }
             
@@ -47,10 +48,29 @@
                 
             }
             
+            .img-small {
+                
+                display: inline-block;
+                
+                
+            }
+            
             
         </style>
     </head>
     <body>
+        
+        <div>
+        <a href="http://www.facebook.com"><label class="search-box" for="artists">Search</label> </a> <input class="search-input" type="text" id="related artist" />
+        <br/><button class="show-all">Show All</button> 
+        <br/><button class="phones">Show all phones</button> 
+        <a href="js/allcases.html"/> <br/><button class="case">Show all cases</button> </a>
+     
+        <!--<input class="search-input" type="text" id="related artist" /> -->
+    </div> 
+    
+        
+        
         <div id="container" class="container">
             <nav>
                 <h1>Product Project</h1>
